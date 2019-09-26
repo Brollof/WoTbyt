@@ -2,7 +2,9 @@ import os
 import sys
 import wget
 import winreg
+import argparse
 import tempfile
+import subprocess
 from zipfile import ZipFile
 
 
@@ -73,7 +75,19 @@ def cleanup(zip_path):
     print("Cleanup OK!")
 
 
+def run_post_script_actions(actions):
+    if actions:
+        print("Running post script actions...")
+        for action in actions:
+            print(f"action: {action}")
+            subprocess.run(action, shell=True)
+
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--post_scripts", nargs="+", help="Post script actions")
+    args = parser.parse_args()
+
     # Download xvm package
     xvm_zip_path = download_file(XVM_URL, DL_DST)
 
@@ -88,6 +102,7 @@ def main():
 
     print("XVM has been successfully installed!")
 
+    run_post_script_actions(args.post_scripts)
 
 if __name__ == "__main__":
     main()

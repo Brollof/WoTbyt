@@ -1,5 +1,5 @@
 @echo off
 
 call venv\Scripts\activate.bat
-python wotbyt.py
+python wotbyt.py %*
 pause
