@@ -6,11 +6,8 @@ XVM automatic installation script
 - git (optional)
 
 ## Installation
-1. git clone https://github.com/Brollof/WoTbyt.git
-2. cd WoTbyt
-3. virtualenv venv
-4. venv\Scripts\activate
-5. pip install -r requirements.txt
+1. Clone repo
+2. Run install_here.bat
 
 ## Usage
-python wotbyt.py
+Run run.bat
