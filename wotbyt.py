@@ -8,7 +8,7 @@ import subprocess
 from zipfile import ZipFile
 
 
-XVM_URL = "https://nightly.modxvm.com/download/wot-1.6.0/latest_xvm.zip"
+XVM_URL = "https://nightly.modxvm.com/download/master/xvm_latest.zip"
 SETTINGS_FILE = "settings.cfg"
 DL_DST = tempfile.gettempdir()
 THIS_SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
