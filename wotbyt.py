@@ -14,9 +14,10 @@ DL_DST = tempfile.gettempdir()
 THIS_SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-def exit(msg, ex):
+def exit(msg, ex=None):
     print(msg)
-    print(ex)
+    if ex:
+        print(ex)
     sys.exit(1)
 
 
@@ -93,6 +94,10 @@ def main():
 
     # Get WoT installation directory
     wot_path = get_wot_install_path()
+
+    # Validate path
+    if not os.path.exists(wot_path):
+        exit(f"Path doesn't exist: {wot_path}")
 
     # Apply xvm
     extract_xvm(xvm_zip_path, wot_path)
